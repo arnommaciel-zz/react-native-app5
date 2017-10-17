@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, Image } from 'react-native';
+import { View, StatusBar, Image, TouchableHighlight } from 'react-native';
 import NavigationBar from './navigationBar';
 
 const logo = require('app5/assets/images/logo.png');
@@ -9,6 +9,14 @@ const empresa  = require('app5/assets/images/menu_empresa.png');
 const servico = require('app5/assets/images/menu_servico.png');
 
 export default class Inicio extends Component {
+    constructor(props){
+        super(props);
+    }
+
+    getRouter = (index) => {
+        this.props.onRouter(index);
+    }
+    
     render() {
       return (
         <View>
@@ -19,12 +27,20 @@ export default class Inicio extends Component {
             </View>
             <View style={styles.inicio.menu.view}>
                 <View style={styles.inicio.menu.grupos}>
-                    <Image style={styles.inicio.menu.images} source={clientes}/>
-                    <Image style={styles.inicio.menu.images} source={contato}/>
+                    <TouchableHighlight onPress={() => {this.getRouter(1)}}>
+                        <Image style={styles.inicio.menu.images} source={clientes}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight onPress={() => {this.getRouter(2)}}>
+                        <Image style={styles.inicio.menu.images} source={contato}/>
+                    </TouchableHighlight>
                 </View>
                 <View style={styles.inicio.menu.grupos}>
-                    <Image style={styles.inicio.menu.images} source={empresa}/>
-                    <Image style={styles.inicio.menu.images} source={servico}/>
+                    <TouchableHighlight onPress={() => {this.getRouter(3)}}>
+                        <Image style={styles.inicio.menu.images} source={empresa}/>
+                    </TouchableHighlight>    
+                    <TouchableHighlight onPress={() => {this.getRouter(4)}}>
+                        <Image style={styles.inicio.menu.images} source={servico}/>
+                    </TouchableHighlight>    
                 </View>
             </View>
         </View>

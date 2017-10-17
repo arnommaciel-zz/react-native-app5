@@ -10,47 +10,62 @@ export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            ActiveScreen: <Inicio/>
+            ActiveScreen: Inicio,
+            activeTab: 0
         };
     }
     
-    showView(index){
-        let screens = [
-            <Inicio/>,
-            <Cliente/>
+    getRouter(index){
+        let routers = [
+            Inicio,
+            Cliente
         ];
         this.setState({
-            ActiveScreen: screens[index]
+            ActiveScreen: routers[index],
+            activeTab: index
         });
     }
 
     render() {
-      return (
-        <View style={{flex:1}}>
-            {this.state.ActiveScreen}
-            <BottomNavigation
-                labelColor="white"
-                rippleColor="white"
-                style={{ height: 56, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
-                onTabChange={(tabIndex) => this.showView(tabIndex)}>
-                <Tab
-                barBackgroundColor="#37474F"
-                label="Movies & TV"
-                icon={<Icon size={24} color="white" name="tv" />}
-                />
-                <Tab
-                barBackgroundColor="#00796B"
-                label="Music"
-                icon={<Icon size={24} color="white" name="music-note" />}
-                />
-                <Tab
-                barBackgroundColor="#5D4037"
-                label="Books"
-                icon={<Icon size={24} color="white" name="book" />}
-                />
-            </BottomNavigation>
-        </View>
-      );
+        let ActiveScreen = this.state.ActiveScreen;
+        return (
+            <View style={{flex:1}}>
+                <ActiveScreen onRouter={(router) => this.getRouter(router)}/>
+                <BottomNavigation
+                    labelColor="#fff"
+                    rippleColor="#fff"
+                    activeTab={this.state.activeTab}
+                    activeLabelColor="#fff"
+                    style={{ height: 56, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
+                    onTabChange={(index) => this.getRouter(index)}>
+                    <Tab
+                    barBackgroundColor="#37474F"
+                    label="Inicio"
+                    icon={<Icon size={24} color="white" name="home" />}
+                    />
+                    <Tab
+                    barBackgroundColor="#00796B"
+                    label="Clientes"
+                    icon={<Icon size={24} color="white" name="people" />}
+                    />
+                    <Tab
+                    barBackgroundColor="#5D4037"
+                    label="Contato"
+                    icon={<Icon size={24} color="white" name="mail" />}
+                    />
+                    <Tab
+                    barBackgroundColor="#5D4037"
+                    label="Empresa"
+                    icon={<Icon size={24} color="white" name="book" />}
+                    />
+                    <Tab
+                    barBackgroundColor="#5D4037"
+                    label="Servicos"
+                    icon={<Icon size={24} color="white" name="book" />}
+                    />
+                </BottomNavigation>
+            </View>
+        );
     }
 }
 
