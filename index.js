@@ -5,7 +5,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Inicio from './src/components/inicio';
 import Cliente from './src/components/cliente';
-
+import Contato from './src/components/contato';
+import Empresa from './src/components/empresa';
+import Servico from './src/components/servico';
 export default class App extends Component {
     constructor(props){
         super(props);
@@ -18,7 +20,10 @@ export default class App extends Component {
     getRouter(index){
         let routers = [
             Inicio,
-            Cliente
+            Cliente,
+            Contato,
+            Empresa,
+            Servico
         ];
         this.setState({
             ActiveScreen: routers[index],
@@ -39,7 +44,7 @@ export default class App extends Component {
                     style={{ height: 56, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
                     onTabChange={(index) => this.getRouter(index)}>
                     <Tab
-                    barBackgroundColor="#37474F"
+                    barBackgroundColor="#00796B"
                     label="Inicio"
                     icon={<Icon size={24} color="white" name="home" />}
                     />
@@ -49,19 +54,19 @@ export default class App extends Component {
                     icon={<Icon size={24} color="white" name="people" />}
                     />
                     <Tab
-                    barBackgroundColor="#5D4037"
+                    barBackgroundColor="#00796B"
                     label="Contato"
-                    icon={<Icon size={24} color="white" name="mail" />}
+                    icon={<Icon size={24} color="white" name="perm-phone-msg" />}
                     />
                     <Tab
-                    barBackgroundColor="#5D4037"
+                    barBackgroundColor="#00796B"
                     label="Empresa"
-                    icon={<Icon size={24} color="white" name="book" />}
+                    icon={<Icon size={24} color="white" name="work" />}
                     />
                     <Tab
-                    barBackgroundColor="#5D4037"
+                    barBackgroundColor="#00796B"
                     label="Servicos"
-                    icon={<Icon size={24} color="white" name="book" />}
+                    icon={<Icon size={24} color="white" name="build" />}
                     />
                 </BottomNavigation>
             </View>

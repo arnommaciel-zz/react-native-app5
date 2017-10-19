@@ -19,26 +19,38 @@ export default class Inicio extends Component {
     
     render() {
       return (
-        <View>
+        <View style={{flex:1, backgroundColor:"#fff"}}>
             <StatusBar barStyle="dark-content"/>
-            <NavigationBar/>
+            <NavigationBar backgroundColor="#00796B"/>
             <View style={styles.inicio.logo.view}>
                 <Image source={logo}/>
             </View>
             <View style={styles.inicio.menu.view}>
                 <View style={styles.inicio.menu.grupos}>
-                    <TouchableHighlight onPress={() => {this.getRouter(1)}}>
+                    <TouchableHighlight 
+                    underlayColor={'#b9c941'}
+                    activeOpacity={0.3}
+                    onPress={() => {this.getRouter(1)}}>
                         <Image style={styles.inicio.menu.images} source={clientes}/>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={() => {this.getRouter(2)}}>
+                    <TouchableHighlight 
+                    underlayColor={'#61bd8c'}
+                    activeOpacity={0.3}
+                    onPress={() => {this.getRouter(2)}}>
                         <Image style={styles.inicio.menu.images} source={contato}/>
                     </TouchableHighlight>
                 </View>
                 <View style={styles.inicio.menu.grupos}>
-                    <TouchableHighlight onPress={() => {this.getRouter(3)}}>
+                    <TouchableHighlight
+                    underlayColor={'#ec7148'}
+                    activeOpacity={0.3}
+                    onPress={() => {this.getRouter(3)}}>
                         <Image style={styles.inicio.menu.images} source={empresa}/>
                     </TouchableHighlight>    
-                    <TouchableHighlight onPress={() => {this.getRouter(4)}}>
+                    <TouchableHighlight 
+                    underlayColor={'#19d1c8'}
+                    activeOpacity={0.3}
+                    onPress={() => {this.getRouter(4)}}>
                         <Image style={styles.inicio.menu.images} source={servico}/>
                     </TouchableHighlight>    
                 </View>

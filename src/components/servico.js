@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import { View, StatusBar, Image, Text } from 'react-native';
 import NavigationBar from './navigationBar';
 
-const detalhes = require('app5/assets/images/detalhe_cliente.png');
-const cliente1 = require('app5/assets/images/cliente1.png');
-const cliente2 = require('app5/assets/images/cliente2.png');
+const detalhes = require('app5/assets/images/detalhe_servico.png');
 
 
-export default class Cliente extends Component {
+export default class Servico extends Component {
 
     getRouter = (index) => {
         this.props.onRouter(index);
@@ -15,20 +13,17 @@ export default class Cliente extends Component {
 
     render() {
       return (
-        <View>
+        <View style={{flex:1, backgroundColor:"#fff"}}>
             <StatusBar barStyle="dark-content"/>
             <NavigationBar voltar navigator={() => {this.getRouter(0)}} backgroundColor="#00796B"/>
-            <View style={styles.cliente.header.view}>
+            <View style={styles.servico.header.view}>
                 <Image source={detalhes}/>
-                <Text style={styles.cliente.header.titulo}>Nossos clientes</Text>
+                <Text style={styles.servico.header.titulo}>Serviços</Text>
             </View>
-            <View style={styles.cliente.menu.view}>    
-                <Image style={styles.cliente.menu.images} source={cliente1}/>
-                <Text style={styles.cliente.menu.text}>Lorem ipsum dolorem</Text>
-            </View>
-            <View style={styles.cliente.menu.view}>
-                <Image style={styles.cliente.menu.images} source={cliente2}/>
-                <Text style={styles.cliente.menu.text}>Lorem ipsum dolorem</Text>
+            <View style={styles.servico.menu.view}>    
+                <Text style={styles.servico.menu.text}>- Consultoria</Text>
+                <Text style={styles.servico.menu.text}>- Processos</Text>
+                <Text style={styles.servico.menu.text}>- Acompanhamento de Processos</Text>
             </View>
         </View>
       );
@@ -36,7 +31,7 @@ export default class Cliente extends Component {
 }
 
 const styles = {
-    cliente:{
+    servico:{
         header:{
             view:{
                 flexDirection: 'row',
@@ -44,7 +39,7 @@ const styles = {
             },
             titulo:{
                 fontSize: 30,
-                color: '#b9c941',
+                color: '#19d1c8',
                 marginLeft: 10,
                 marginTop: 25
             }
@@ -59,7 +54,6 @@ const styles = {
             },
             text:{
                 fontSize: 18,
-                marginLeft: 20
             }
         }
     }
